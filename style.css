@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+    background-color: var(--sec);
+}
+
+:root{
+    --pri: #f8f4e1;
+    --sec: #4e1f00;
+    --tri1: #feba17;
+    --tri2: #74512d;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+    font-family: monospace;
+    color: var(--sec);
+}
+
+nav{
+    position: fixed;
+    height: 10%;
+    width: 100%;
+    background-color: var(--tri2);
+}
+
+section.allElems{
+    height: 100%;
+    width: 100%;
+    padding: 40px;
+    padding-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 2vw;
+}
+
+.elem{
+    background-color: var(--pri);
+    padding: 30px 40px;
+    border-radius: 30px;
+    font-size: 1.5vw;
+}
