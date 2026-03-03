@@ -8,6 +8,7 @@ html,body{
     height: 100%;
     width: 100%;
     background-color: var(--sec);
+    font-size: 16px;
 }
 
 :root{
@@ -20,7 +21,7 @@ html,body{
 main{
     height: 100%;
     width: 100%;
-    font-family: monospace;
+    font-family: work sans;
     color: var(--sec);
 }
 
@@ -40,11 +41,67 @@ section.allElems{
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 2vw;
+    position: absolute;
 }
 
 .elem{
     background-color: var(--pri);
-    padding: 30px 40px;
-    border-radius: 30px;
-    font-size: 1.5vw;
+    border-radius: 10px;
+    height: 50%;
+    width: 18%;
+    overflow: hidden;
+    position: relative;
+    transition: all ease 0.2s;
+    cursor: pointer;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.elem img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.elem h2{
+    position: absolute;
+    bottom: 2%;
+    right: 5%;
+    font-size: 1rem;
+    font-weight: 600;  
+}
+
+.elem:hover{
+    scale: 1.05;
+}
+
+.elem:active{
+    scale: 0.95;
+}
+
+.fullElem{
+    height: 100%;
+    width: 100%;
+    background-color: var(--sec);
+    padding: 40px;
+    font-size: 3rem;
+    display: none;
+    position: absolute;
+    color: var(--pri);
+}
+
+.back{
+    position: absolute;
+    right: 5%;
+    background-color: var(--pri);
+    border: none;
+    padding: 8px 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all ease 0.2s;
+}
+
+.back:active{
+    scale: 0.90;
 }
