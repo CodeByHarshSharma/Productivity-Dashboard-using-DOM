@@ -83,7 +83,6 @@ section.allElems{
     width: 100%;
     background-color: var(--sec);
     padding: 40px;
-    font-size: 3rem;
     display: none;
     position: absolute;
     color: var(--pri);
@@ -92,7 +91,7 @@ section.allElems{
 .back{
     position: absolute;
     right: 5%;
-    background-color: var(--pri);
+    background-color: red;
     border: none;
     padding: 8px 10px;
     font-size: 1rem;
@@ -100,8 +99,122 @@ section.allElems{
     border-radius: 10px;
     cursor: pointer;
     transition: all ease 0.2s;
+    color: var(--pri);
 }
 
 .back:active{
     scale: 0.90;
+}
+
+.todo-list-fullPage{
+    display: block;
+}
+
+.todo-list-fullPage h2{
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.todo-list-fullPage .todo-Container{
+    height: 80%;
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.todo-list-fullPage .todo-Container .addTask{
+    width: 28%;
+    height: 100%;
+    background-color: var(--tri2);
+    border-radius: 20px;
+}
+
+.todo-list-fullPage .todo-Container .addTask form{
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    padding: 25px;
+}
+
+.todo-Container .addTask form input{
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--pri);
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 15px;
+    color: var(--pri);
+}
+
+.todo-Container .addTask form textarea{
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--pri);
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 15px;
+    color: var(--pri);
+}
+
+.todo-Container .addTask form button{
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--tri1);
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 15px;
+    font-weight: 700;
+    transition: all ease 0.3s;
+    color: var(--pri);
+}
+
+.todo-Container .addTask form button:active{
+    scale: 0.95;
+}
+
+.todo-list-fullPage .todo-Container .allTask{
+    width: 70%;
+    height: 100%;
+    background-color: var(--tri2);
+    border-radius: 20px;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    padding: 25px;
+    overflow: auto;
+}
+
+.Task{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 25px;
+    background-color: var(--pri);
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.Task h5{
+    color: var(--sec);
+    font-size: 1.5rem;
+}
+
+.Task button{
+    padding: 10px 25px;
+    color: var(--pri);
+    background-color: green;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
 }
