@@ -107,7 +107,7 @@ section.allElems{
 }
 
 .todo-list-fullPage{
-    display: block;
+    /* display: block; */
 }
 
 .todo-list-fullPage h2{
@@ -195,8 +195,8 @@ section.allElems{
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 15px 25px;
-    background-color: var(--pri);
+    padding: 10px 25px;
+    background-color: whitesmoke;
     margin-bottom: 10px;
     border-radius: 10px;
 }
@@ -207,6 +207,7 @@ section.allElems{
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-bottom: 5px;
 }
 
 .Task h5 span{
@@ -234,6 +235,11 @@ section.allElems{
     border: none;
     font-weight: 500;
     cursor: pointer;
+    transition: all ease 0.2s;
+}
+
+.Task button:active{
+    scale: 0.95;
 }
 
 .mark-imp{
@@ -244,4 +250,35 @@ section.allElems{
     padding: 10px 0px;
     margin-bottom: 15px;
     gap: 10px;
+}
+
+summary {
+  list-style: none;
+  display: flex;
+  align-items: center; 
+  gap: 10px;
+  cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::before {
+  content: '▶';
+  color: var(--sec);
+}
+
+details[open] summary::before {
+  content: '▼';
+  color: var(--sec);
+}
+
+.daily-planner-fullPage{
+    display: block;
+}
+
+.daily-planner-fullPage h2{
+    font-size: 3rem;
+    font-weight: 600;
 }
