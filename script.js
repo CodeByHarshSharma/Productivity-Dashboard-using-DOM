@@ -83,3 +83,40 @@ function todoList() {
 }
 
 todoList();
+
+function dayPlanner() {
+    let dayPlanner = document.querySelector('.day-planner')
+
+    let dayPlanData = JSON.parse(localStorage.getItem('dayPlanData')) || {}
+
+
+    let hours = Array.from({ length: 18 }, function (elem, idx) {
+        return `${6 + idx}:00 - ${7 + idx}:00`
+    })
+
+    let daySum = ''
+
+    hours.forEach(function (elem, idx) {
+
+        let savedData = dayPlanData[idx] || ''
+        daySum = daySum + ` <div class="day-planner-time">
+                            <p>${elem}</p>
+                            <input id=${idx} type="text" placeholder="..." value="${savedData}">
+                        </div>`
+    })
+
+
+    dayPlanner.innerHTML = daySum
+
+    let dayPlannerInput = document.querySelectorAll('.day-planner input')
+
+    dayPlannerInput.forEach(function (elem) {
+        elem.addEventListener('input', function () {
+            dayPlanData[elem.id] = elem.value
+
+            localStorage.setItem('dayPlanData', JSON.stringify(dayPlanData))
+        })
+    })
+}
+
+dayPlanner();
