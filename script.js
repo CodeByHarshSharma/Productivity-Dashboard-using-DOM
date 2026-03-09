@@ -120,3 +120,20 @@ function dayPlanner() {
 }
 
 dayPlanner();
+
+function motivationalQuote() {
+    let motivationQuote = document.querySelector('.motivation-2 h1')
+    let motivationAuthor = document.querySelector('.motivation-3 h2')
+
+    async function fetchQuote() {
+        let quote = await fetch("https://dummyjson.com/quotes/random")
+        let data = await quote.json()
+
+        motivationQuote.innerHTML = data.quote
+        motivationAuthor.innerHTML = "- " + data.author
+    }
+
+    fetchQuote()
+}
+
+motivationalQuote()

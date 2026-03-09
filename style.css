@@ -331,18 +331,23 @@ details[open] summary::before {
 }
 
 .motivational-fullPage{
-    display: block;
+    /* display: block; */
     position: relative;
+}
+
+.motivation-fullPage-Container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .motivational-fullPage .motivation-container{
     height: 50%;
     width: 80%;
-    position: absolute;
-    transform: translate(-50%,-50%);
     border-radius: 50px;
-    top: 50%;
-    left: 50%;
+    position: relative;
 }
 
 .motivational-fullPage .motivation-container::after{
