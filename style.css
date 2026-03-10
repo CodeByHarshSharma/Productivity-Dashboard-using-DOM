@@ -419,3 +419,54 @@ details[open] summary::before {
     opacity: 0.8;
     height: 60px;
 }
+
+.pomodoro-fullPage{
+    /* display: block; */
+    position: relative;
+}
+
+.pomodoro-fullPage h2{
+    font-size: 3rem;
+}
+
+.pomodoro-fullPage .pomo-timer{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.pomo-timer h1{
+    font-size: 7rem;
+}
+
+.pomo-timer button{
+    background-color: var(--tri2);
+    padding: 10px 30px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--pri);
+    box-shadow: 5px 5px 0px black;
+    cursor: pointer;
+    transition: all ease 0.1s;
+    font-weight: 600;
+}
+
+.pomo-timer button:active{
+    box-shadow: none;
+}
+
+.pomodoro-fullPage .session{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,0);
+    background-color: rgb(7, 152, 72);
+    padding: 10px 25px;
+    font-size: 1.5rem;
+    color: var(--pri);
+    border-radius: 5px;
+}
