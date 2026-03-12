@@ -47,8 +47,8 @@ section.allElems{
 .elem{
     background-color: var(--pri);
     border-radius: 10px;
-    height: 50%;
-    width: 18%;
+    height: 60%;
+    width: 23%;
     overflow: hidden;
     position: relative;
     transition: all ease 0.2s;
