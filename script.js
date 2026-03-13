@@ -139,68 +139,121 @@ function motivationalQuote() {
 motivationalQuote()
 
 
-let timer = document.querySelector('.pomo-timer h1')
-let startBtn = document.querySelector('.pomo-timer .start-timer')
-let pauseBtn = document.querySelector('.pomo-timer .pause-timer')
-let resetBtn = document.querySelector('.pomo-timer .reset-timer')
-let session = document.querySelector('.pomodoro-fullPage .session')
-let isWorkSession = true
+function pomodoroTimer() {
+    let timer = document.querySelector('.pomo-timer h1')
+    let startBtn = document.querySelector('.pomo-timer .start-timer')
+    let pauseBtn = document.querySelector('.pomo-timer .pause-timer')
+    let resetBtn = document.querySelector('.pomo-timer .reset-timer')
+    let session = document.querySelector('.pomodoro-fullPage .session')
+    let isWorkSession = true
 
-let timerInterval = null
-let totalSeconds = 25*60
+    let timerInterval = null
+    let totalSeconds = 25 * 60
 
-function updateTimer(){
-    let minutes = Math.floor(totalSeconds/60)
-    let seconds = totalSeconds%60
+    function updateTimer() {
+        let minutes = Math.floor(totalSeconds / 60)
+        let seconds = totalSeconds % 60
 
-    timer.innerHTML = `${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`
+        timer.innerHTML = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
+    }
+
+
+    function startTimer() {
+        clearInterval(timerInterval)
+
+        if (isWorkSession) {
+            timerInterval = setInterval(function () {
+                if (totalSeconds > 0) {
+                    totalSeconds--
+                    updateTimer()
+                } else {
+                    isWorkSession = false
+                    clearInterval(timerInterval)
+                    timer.innerHTML = '05:00'
+                    session.innerHTML = 'Break'
+                    session.style.backgroundColor = 'royalblue'
+                    totalSeconds = 5 * 60
+                }
+            }, 1000)
+        } else {
+            timerInterval = setInterval(function () {
+                if (totalSeconds > 0) {
+                    totalSeconds--
+                    updateTimer()
+                } else {
+                    isWorkSession = true
+                    clearInterval(timerInterval)
+                    timer.innerHTML = '25:00'
+                    session.innerHTML = 'Work Session'
+                    session.style.backgroundColor = 'rgb(7, 152, 72)'
+                    totalSeconds = 25 * 60
+                }
+            }, 1000)
+        }
+    }
+
+    function pauseTimer() {
+        clearInterval(timerInterval)
+    }
+
+    function resetTimer() {
+        clearInterval(timerInterval)
+        totalSeconds = 25 * 60
+        updateTimer()
+    }
+
+    startBtn.addEventListener('click', startTimer)
+    pauseBtn.addEventListener('click', pauseTimer)
+    resetBtn.addEventListener('click', resetTimer)
 }
 
+pomodoroTimer()
 
-function startTimer(){
-    clearInterval(timerInterval)
+let apikey = `a8b86c82d63fe80b3e3d4496bed5b47e`;
+let city = 'Delhi'
+let headerTime = document.querySelector('.header-1 h1')
+let headerDate = document.querySelector('.header-1 h2')
+let headerTemp = document.querySelector('.header-2 h2')
+let headerWeather = document.querySelector('.header-2 h4')
 
-    if(isWorkSession){
-        timerInterval = setInterval(function(){
-            if(totalSeconds>0){
-                totalSeconds--
-                updateTimer()
-            }else{
-                isWorkSession = false
-                clearInterval(timerInterval)
-                timer.innerHTML = '05:00'
-                session.innerHTML = 'Break'
-                session.style.backgroundColor = 'royalblue'
-                totalSeconds = 5*60
-            }
-        },1000)
-    }else{
-        timerInterval = setInterval(function(){
-            if(totalSeconds>0){
-                totalSeconds--
-                updateTimer()
-            }else{
-                isWorkSession = true
-                clearInterval(timerInterval)
-                timer.innerHTML = '25:00'
-                session.innerHTML = 'Work Session'
-                session.style.backgroundColor = 'rgb(7, 152, 72)'
-                totalSeconds = 25*60
-            }
-        },1000)
+let data = null
+async function weatherAPICall() {
+
+    let url = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`);
+
+    data = await url.json()
+
+    console.log(data.weather[0].main)
+
+    headerTemp.innerHTML = `${Math.floor(data.main.temp)}°C`
+    headerWeather.innerHTML = `${data.weather[0].main}`
+}
+
+weatherAPICall()
+
+let date = null
+function timeDate(){
+    const daysofWeek = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const monthsofYear = [ 'January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    date = new Date()
+    let week = daysofWeek[date.getDay()]
+    let hours = date.getHours()
+    let minutes = date.getMinutes()
+    let seconds = date.getSeconds()
+    let currentDate = date.getDate()
+    let month = monthsofYear[date.getMonth()]
+    let year = date.getFullYear()
+
+    headerDate.innerHTML = `${currentDate} ${month}, ${year}`
+
+    if(hours>12){
+        headerTime.innerHTML = `${week}, ${String(hours-12).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} PM`
+    }
+    else{
+        headerTime.innerHTML = `${week}, ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} AM`
     }
 }
 
-function pauseTimer(){
-    clearInterval(timerInterval)
-}
-
-function resetTimer(){
-    clearInterval(timerInterval)
-    totalSeconds = 25*60
-    updateTimer()
-}
-
-startBtn.addEventListener('click',startTimer)
-pauseBtn.addEventListener('click',pauseTimer)
-resetBtn.addEventListener('click',resetTimer)
+setInterval(function(){
+    timeDate()
+},1000)

@@ -25,30 +25,74 @@ main{
     color: var(--sec);
 }
 
-nav{
-    position: fixed;
-    height: 10%;
-    width: 100%;
-    background-color: var(--tri2);
-}
 
 section.allElems{
     height: 100%;
     width: 100%;
     padding: 40px;
-    padding-top: 100px;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    gap: 2vw;
+    overflow: auto;
     position: absolute;
 }
 
+.allElems header{
+    height: 40%;
+    width: 100%;
+    border-radius: 20px;
+    background-image: url(assets/Cloudy_Sky.avif);
+    background-size: cover;
+    background-position: center;
+    /* margin-bottom: 30px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--pri);
+    padding: 25px;
+    text-shadow: 1px 1px 50px black;
+}
+
+header .header-1 h2{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+header .header-1 h1{
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+}
+
+header .header-1 h4{
+    font-size: 2.5rem;
+    font-weight: 500;
+} 
+
+header .header-2 h2{
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+header .header-2 h4,h3{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.allElems .allFeatures{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
 .elem{
+    aspect-ratio: 2.5/3;
     background-color: var(--pri);
     border-radius: 10px;
-    height: 60%;
-    width: 23%;
+    height: 55%;
+    width: 22%;
     overflow: hidden;
     position: relative;
     transition: all ease 0.2s;
@@ -470,3 +514,4 @@ details[open] summary::before {
     color: var(--pri);
     border-radius: 5px;
 }
+
