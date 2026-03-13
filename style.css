@@ -1,24 +1,26 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-html,body{
+html,
+body {
     height: 100%;
     width: 100%;
     background-color: var(--sec);
     font-size: 16px;
 }
 
-:root{
+:root {
     --pri: #f8f4e1;
     --sec: #4e1f00;
     --tri1: #feba17;
     --tri2: #74512d;
 }
 
-main{
+main {
     height: 100%;
     width: 100%;
     font-family: work sans;
@@ -26,114 +28,137 @@ main{
 }
 
 
-section.allElems{
+section.allElems {
     height: 100%;
     width: 100%;
-    padding: 40px;
+    padding: 10px 30px;
+    padding-top: 95px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
     overflow: auto;
     position: absolute;
 }
 
-.allElems header{
+.allElems header {
     height: 40%;
     width: 100%;
     border-radius: 20px;
     background-image: url(assets/Cloudy_Sky.avif);
     background-size: cover;
     background-position: center;
-    /* margin-bottom: 30px; */
+    margin-bottom: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     color: var(--pri);
     padding: 25px;
     text-shadow: 1px 1px 50px black;
 }
 
-header .header-1 h2{
+header .header-1 h2 {
     font-size: 2rem;
     font-weight: 500;
 }
 
-header .header-1 h1{
+header .header-1 h1 {
     font-size: 3.5rem;
     margin-bottom: 30px;
 }
 
-header .header-1 h4{
+header .header-1 h4 {
     font-size: 2.5rem;
     font-weight: 500;
-} 
+}
 
-header .header-2 h2{
+header .header-2 h2 {
     font-size: 3rem;
     margin-bottom: 10px;
 }
 
-header .header-2 h4,h3{
+header .header-2 h4,
+h3 {
     font-size: 1.2rem;
     font-weight: 500;
 }
 
-.allElems .allFeatures{
+.allElems .allFeatures {
     height: auto;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 
-.elem{
+.elem {
     aspect-ratio: 2.5/3;
     background-color: var(--pri);
     border-radius: 10px;
-    height: 55%;
-    width: 22%;
+    width: 20%;
     overflow: hidden;
     position: relative;
+    -webkit-transition: all ease 0.2s;
+    -o-transition: all ease 0.2s;
     transition: all ease 0.2s;
     cursor: pointer;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
 }
 
-.elem img{
+.elem img {
     height: 100%;
     width: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
 }
 
-.elem h2{
+.elem h2 {
     position: absolute;
     bottom: 2%;
     right: 5%;
     font-size: 1rem;
-    font-weight: 600;  
+    font-weight: 600;
 }
 
-.elem:hover{
+.elem:hover {
     scale: 1.05;
 }
 
-.elem:active{
+.elem:active {
     scale: 0.95;
 }
 
-.fullElem{
+.fullElem {
     height: 100%;
     width: 100%;
     background-color: var(--sec);
     padding: 40px;
+    padding-top: 100px;
     display: none;
     position: absolute;
     color: var(--pri);
 }
 
-.back{
+.back {
     position: absolute;
+    top: 15%;
     right: 5%;
     background-color: red;
     border: none;
@@ -142,47 +167,59 @@ header .header-2 h4,h3{
     font-weight: 500;
     border-radius: 10px;
     cursor: pointer;
+    -webkit-transition: all ease 0.2s;
+    -o-transition: all ease 0.2s;
     transition: all ease 0.2s;
     color: var(--pri);
 }
 
-.back:active{
+.back:active {
     scale: 0.90;
 }
 
-/* .todo-list-fullPage{
-    display: block;
-} */
 
-.todo-list-fullPage h2{
+.todo-list-fullPage h2 {
     font-size: 3rem;
     font-weight: 600;
 }
 
-.todo-list-fullPage .todo-Container{
+.todo-list-fullPage .todo-Container {
     height: 80%;
     width: 100%;
     margin-top: 25px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 
-.todo-list-fullPage .todo-Container .addTask{
+.todo-list-fullPage .todo-Container .addTask {
     width: 28%;
     height: 100%;
     background-color: var(--tri2);
     border-radius: 15px;
 }
 
-.todo-list-fullPage .todo-Container .addTask form{
+.todo-list-fullPage .todo-Container .addTask form {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column;
     flex-flow: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
     padding: 25px;
 }
 
-.todo-Container .addTask form input#task-input{
+.todo-Container .addTask form input#task-input {
     padding: 10px 20px;
     width: 100%;
     border-radius: 5px;
@@ -193,7 +230,7 @@ header .header-2 h4,h3{
     margin-bottom: 15px;
 }
 
-.todo-Container .addTask form textarea{
+.todo-Container .addTask form textarea {
     padding: 10px 20px;
     width: 100%;
     border-radius: 5px;
@@ -204,7 +241,7 @@ header .header-2 h4,h3{
     margin-bottom: 15px;
 }
 
-.todo-Container .addTask form button{
+.todo-Container .addTask form button {
     padding: 10px 20px;
     width: 100%;
     border-radius: 5px;
@@ -214,29 +251,44 @@ header .header-2 h4,h3{
     cursor: pointer;
     margin-bottom: 15px;
     font-weight: 700;
+    -webkit-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
     transition: all ease 0.3s;
     color: var(--pri);
 }
 
-.todo-Container .addTask form button:active{
+.todo-Container .addTask form button:active {
     scale: 0.95;
 }
 
-.todo-list-fullPage .todo-Container .allTask{
+.todo-list-fullPage .todo-Container .allTask {
     width: 70%;
     height: 100%;
     background-color: var(--tri2);
     border-radius: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column;
     flex-flow: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
     padding: 25px;
     overflow: auto;
 }
 
-.Task{
+.Task {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     width: 100%;
     padding: 10px 25px;
@@ -245,16 +297,20 @@ header .header-2 h4,h3{
     border-radius: 10px;
 }
 
-.Task h5{
+.Task h5 {
     color: var(--sec);
     font-size: 1.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     gap: 10px;
     margin-bottom: 5px;
 }
 
-.Task h5 span{
+.Task h5 span {
     color: var(--pri);
     background-color: crimson;
     border-radius: 50px;
@@ -262,15 +318,15 @@ header .header-2 h4,h3{
     font-size: 0.7rem;
 }
 
-.Task h5 span.true{
+.Task h5 span.true {
     opacity: 1;
 }
 
-.Task h5 span.false{
+.Task h5 span.false {
     opacity: 0;
 }
 
-.Task button{
+.Task button {
     padding: 10px 25px;
     color: var(--pri);
     background-color: green;
@@ -279,16 +335,24 @@ header .header-2 h4,h3{
     border: none;
     font-weight: 500;
     cursor: pointer;
+    -webkit-transition: all ease 0.2s;
+    -o-transition: all ease 0.2s;
     transition: all ease 0.2s;
 }
 
-.Task button:active{
+.Task button:active {
     scale: 0.95;
 }
 
-.mark-imp{
+.mark-imp {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
     width: 100%;
     padding: 10px 0px;
@@ -297,57 +361,68 @@ header .header-2 h4,h3{
 }
 
 summary {
-  list-style: none;
-  display: flex;
-  align-items: center; 
-  gap: 10px;
-  cursor: pointer;
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
 }
 
 summary::-webkit-details-marker {
-  display: none;
+    display: none;
 }
 
 summary::before {
-  content: '▶';
-  color: var(--sec);
+    content: '▶';
+    color: var(--sec);
 }
 
 details[open] summary::before {
-  content: '▼';
-  color: var(--sec);
+    content: '▼';
+    color: var(--sec);
 }
 
-/* .daily-planner-fullPage{
-    display: block;
-} */
 
-.daily-planner-fullPage h2{
+.daily-planner-fullPage h2 {
     font-size: 3rem;
     font-weight: 600;
 }
 
-.daily-planner-fullPage .day-planner{
+.daily-planner-fullPage .day-planner {
     background-color: var(--tri2);
     height: 85%;
     width: 100%;
     margin-top: 35px;
     border-radius: 15px;
     padding: 25px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     overflow: auto;
 }
 
-.daily-planner-fullPage .day-planner::-webkit-scrollbar{
+.daily-planner-fullPage .day-planner::-webkit-scrollbar {
     display: none;
 }
 
-.daily-planner-fullPage .day-planner .day-planner-time{
-    /* background-color: red; */
+.daily-planner-fullPage .day-planner .day-planner-time {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     position: relative;
     width: 49%;
@@ -355,14 +430,14 @@ details[open] summary::before {
 
 }
 
-.day-planner .day-planner-time p{
+.day-planner .day-planner-time p {
     position: absolute;
     top: 10%;
     left: 2%;
-    font-size: 1rem ;
+    font-size: 1rem;
 }
 
-.day-planner .day-planner-time input{
+.day-planner .day-planner-time input {
     padding: 10px 35px;
     width: 100%;
     background-color: var(--sec);
@@ -374,27 +449,30 @@ details[open] summary::before {
     outline: none;
 }
 
-.motivational-fullPage{
-    /* display: block; */
-    position: relative;
-}
 
-.motivation-fullPage-Container{
+
+.motivation-fullPage-Container {
     height: 100%;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
-.motivational-fullPage .motivation-container{
+.motivational-fullPage .motivation-container {
     height: 50%;
     width: 80%;
     border-radius: 50px;
     position: relative;
 }
 
-.motivational-fullPage .motivation-container::after{
+.motivational-fullPage .motivation-container::after {
     content: '';
     height: 100%;
     width: 100%;
@@ -402,11 +480,12 @@ details[open] summary::before {
     border-radius: 50px;
     position: absolute;
     background-color: var(--tri1);
+    -webkit-filter: blur(150px);
     filter: blur(150px);
     z-index: 9;
 }
 
-.motivational-fullPage .motivation-container .motivation-wrapper{
+.motivational-fullPage .motivation-container .motivation-wrapper {
     z-index: 10;
     position: absolute;
     width: 100%;
@@ -415,13 +494,19 @@ details[open] summary::before {
     padding: 10px;
 }
 
-.motivation-1{
+.motivation-1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
 }
 
-.motivation-1 h2{
+.motivation-1 h2 {
     background-color: var(--tri2);
     padding: 20px;
     border-radius: 30px;
@@ -429,25 +514,31 @@ details[open] summary::before {
     font-weight: 400;
 }
 
-.motivation-2{
+.motivation-2 {
     padding: 10px;
     margin-top: 15px;
 }
 
-.motivation-2 h1{
+.motivation-2 h1 {
     font-size: 2rem;
     font-weight: 700;
     color: var(--sec);
 }
 
-.motivation-3{
+.motivation-3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
     margin-top: 20px;
 }
 
-.motivation-3 h2{
+.motivation-3 h2 {
     background-color: var(--tri2);
     padding: 15px;
     border-radius: 30px;
@@ -456,7 +547,7 @@ details[open] summary::before {
     text-align: right;
 }
 
-.motivational-fullPage .motivation-container .motivation-wrapper img{
+.motivational-fullPage .motivation-container .motivation-wrapper img {
     position: absolute;
     right: 5%;
     top: 5%;
@@ -464,28 +555,28 @@ details[open] summary::before {
     height: 60px;
 }
 
-.pomodoro-fullPage{
-    /* display: block; */
-    position: relative;
-}
 
-.pomodoro-fullPage h2{
+
+.pomodoro-fullPage h2 {
     font-size: 3rem;
 }
 
-.pomodoro-fullPage .pomo-timer{
+.pomodoro-fullPage .pomo-timer {
     position: absolute;
     top: 45%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     text-align: center;
+
 }
 
-.pomo-timer h1{
+.pomo-timer h1 {
     font-size: 7rem;
 }
 
-.pomo-timer button{
+.pomo-timer button {
     background-color: var(--tri2);
     padding: 10px 30px;
     margin: 5px;
@@ -493,21 +584,27 @@ details[open] summary::before {
     border: none;
     font-size: 1.2rem;
     color: var(--pri);
+    -webkit-box-shadow: 5px 5px 0px black;
     box-shadow: 5px 5px 0px black;
     cursor: pointer;
+    -webkit-transition: all ease 0.1s;
+    -o-transition: all ease 0.1s;
     transition: all ease 0.1s;
     font-weight: 600;
 }
 
-.pomo-timer button:active{
+.pomo-timer button:active {
+    -webkit-box-shadow: none;
     box-shadow: none;
 }
 
-.pomodoro-fullPage .session{
+.pomodoro-fullPage .session {
     position: absolute;
     top: 20%;
     left: 50%;
-    transform: translate(-50%,0);
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
     background-color: rgb(7, 152, 72);
     padding: 10px 25px;
     font-size: 1.5rem;
@@ -515,3 +612,51 @@ details[open] summary::before {
     border-radius: 5px;
 }
 
+nav {
+    width: 100%;
+    color: var(--pri);
+    padding: 15px 30px;
+    position: absolute;
+    z-index: 9;
+}
+
+nav .nav-in {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    background-color: var(--tri2);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.nav-in h2 {
+    font-weight: 600;
+}
+
+.theme {
+    background-color: var(--pri);
+    padding: 7px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-transition: all ease 0.2s;
+    -o-transition: all ease 0.2s;
+    transition: all ease 0.2s;
+}
+
+.theme h4 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--sec);
+    pointer-events: none;
+}
+
+.theme:active {
+    scale: 0.95;
+}

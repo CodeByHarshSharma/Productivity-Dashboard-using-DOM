@@ -209,51 +209,96 @@ function pomodoroTimer() {
 
 pomodoroTimer()
 
-let apikey = `a8b86c82d63fe80b3e3d4496bed5b47e`;
-let city = 'Delhi'
-let headerTime = document.querySelector('.header-1 h1')
-let headerDate = document.querySelector('.header-1 h2')
-let headerTemp = document.querySelector('.header-2 h2')
-let headerWeather = document.querySelector('.header-2 h4')
+function weather() {
+    let apikey = `a8b86c82d63fe80b3e3d4496bed5b47e`;
+    let city = 'New Delhi'
+    let headerTime = document.querySelector('.header-1 h1')
+    let headerDate = document.querySelector('.header-1 h2')
+    let headerTemp = document.querySelector('.header-2 h2')
+    let headerWeather = document.querySelector('.header-2 h4')
 
-let data = null
-async function weatherAPICall() {
+    let data = null
+    async function weatherAPICall() {
 
-    let url = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`);
+        let url = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`);
 
-    data = await url.json()
+        data = await url.json()
 
-    console.log(data.weather[0].main)
+        headerTemp.innerHTML = `${Math.floor(data.main.temp)}°C`
+        headerWeather.innerHTML = `${data.weather[0].main}`
+    }
 
-    headerTemp.innerHTML = `${Math.floor(data.main.temp)}°C`
-    headerWeather.innerHTML = `${data.weather[0].main}`
+    weatherAPICall()
+
+    let date = null
+    function timeDate() {
+        const daysofWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const monthsofYear = ['January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        date = new Date()
+        let week = daysofWeek[date.getDay()]
+        let hours = date.getHours()
+        let minutes = date.getMinutes()
+        let seconds = date.getSeconds()
+        let currentDate = date.getDate()
+        let month = monthsofYear[date.getMonth()]
+        let year = date.getFullYear()
+
+        headerDate.innerHTML = `${currentDate} ${month}, ${year}`
+
+        if (hours > 12) {
+            headerTime.innerHTML = `${week}, ${String(hours - 12).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} PM`
+        }
+        else {
+            headerTime.innerHTML = `${week}, ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} AM`
+        }
+    }
+
+    setInterval(function () {
+        timeDate()
+    }, 1000)
 }
 
-weatherAPICall()
+weather()
 
-let date = null
-function timeDate(){
-    const daysofWeek = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const monthsofYear = [ 'January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    date = new Date()
-    let week = daysofWeek[date.getDay()]
-    let hours = date.getHours()
-    let minutes = date.getMinutes()
-    let seconds = date.getSeconds()
-    let currentDate = date.getDate()
-    let month = monthsofYear[date.getMonth()]
-    let year = date.getFullYear()
+function screenTheme() {
+    let theme = document.querySelector('.theme');
+    let rootElem = document.documentElement;
 
-    headerDate.innerHTML = `${currentDate} ${month}, ${year}`
-
-    if(hours>12){
-        headerTime.innerHTML = `${week}, ${String(hours-12).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} PM`
+    function changeTheme(num) {
+        if (num === '1') {
+            rootElem.style.setProperty('--pri', '#F1EFEC');
+            rootElem.style.setProperty('--sec', '#030303');
+            rootElem.style.setProperty('--tri1', '#D4C9BE');
+            rootElem.style.setProperty('--tri2', '#123458');
+        } else if (num === '2') {
+            rootElem.style.setProperty('--pri', '#F8F4E1');
+            rootElem.style.setProperty('--sec', '#381C0A');
+            rootElem.style.setProperty('--tri1', '#FEBA17');
+            rootElem.style.setProperty('--tri2', '#74512D');
+        } else {
+            rootElem.style.setProperty('--pri', '#F8F4E1');
+            rootElem.style.setProperty('--sec', '#222831');
+            rootElem.style.setProperty('--tri1', '#948979');
+            rootElem.style.setProperty('--tri2', '#393E46');
+        }
     }
-    else{
-        headerTime.innerHTML = `${week}, ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} AM`
-    }
+
+    changeTheme(localStorage.getItem('themeState'));
+
+    theme.addEventListener('click', function () {
+        let currentTheme = localStorage.getItem('themeState') || '0';
+        let change;
+
+        if (currentTheme === '0') {
+            change = '1';
+        } else if (currentTheme === '1') {
+            change = '2';
+        } else {
+            change = '0';
+        }
+
+        localStorage.setItem('themeState', change);
+
+        changeTheme(change);
+    });
 }
-
-setInterval(function(){
-    timeDate()
-},1000)
