@@ -302,3 +302,5 @@ function screenTheme() {
         changeTheme(change);
     });
 }
+
+screenTheme()
